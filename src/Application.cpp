@@ -1,6 +1,7 @@
 #include "Application.h"
 
-Application::Application()
+Application::Application() :
+	m_window(Window())
 {
 
 }
@@ -10,7 +11,10 @@ Application::~Application()
 
 }
 
-void Application::start()
+void Application::run()
 {
-
+	while (m_window.running())
+	{
+		m_window.update();
+	}
 }

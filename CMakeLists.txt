@@ -1,9 +1,7 @@
 project(XYZ-Renderer)
-add_executable(XYZ-Renderer 
-	lib/glad/src/glad/glad.c 
-	src/main.cpp 
-)
+add_executable(XYZ-Renderer lib/glad/src/glad.c src/main.cpp src/Window.cpp src/Application.cpp "src/Model.h")
 add_subdirectory(./lib/glfw-3.4)
 target_link_libraries(XYZ-Renderer PRIVATE glfw)
 add_subdirectory(./lib/glm)
 target_link_libraries(XYZ-Renderer PRIVATE glm::glm)
+include_directories(lib/glad/include)

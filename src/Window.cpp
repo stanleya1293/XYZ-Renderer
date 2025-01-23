@@ -1,5 +1,4 @@
 #include "Window.h"
-#include <cstddef>
 
 Window::Window() :
 	m_windowID(nullptr),
@@ -27,7 +26,7 @@ Window::~Window()
 
 bool Window::running()
 {
-	if (glfwWindowShouldClose())
+	if (glfwWindowShouldClose(m_windowID))
 		return false;
 	else
 		return true;
