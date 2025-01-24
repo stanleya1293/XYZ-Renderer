@@ -3,6 +3,7 @@
 
 #include "Window.h"
 #include "Model.h"
+#include "Shader.h"
 
 class Application 
 {
