@@ -2,6 +2,7 @@
 #define APPLICATION_H
 
 #include "Window.h"
+#include "Model.h"
 
 class Application 
 {
