@@ -15,13 +15,13 @@ void Application::run()
 {
 	std::vector<Vertex> vertices =
 	{
-		Vertex { -0.5f,  -0.5f,  0.0f },
-		Vertex { -0.5f,   0.5f,  0.0f },
-		Vertex {  0.5f,  -0.5f,  0.0f },
+		Vertex {{ -0.5f,  -0.5f,  0.0f  }},
+		Vertex {{ -0.5f,   0.5f,  0.0f  }},
+		Vertex {{  0.5f,  -0.5f,  0.0f  }},
 
-		Vertex {  0.5f,  -0.5f,  0.0f },
-		Vertex { -0.5f,   0.5f,  0.0f },
-		Vertex {  0.5f,   0.5f,  0.0f }
+		Vertex {{  0.5f,  -0.5f,  0.0f  }},
+		Vertex {{ -0.5f,   0.5f,  0.0f  }},
+		Vertex {{  0.5f,   0.5f,  0.0f  }}
 	};
 
 	Model square(vertices);

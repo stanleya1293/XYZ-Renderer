@@ -1,13 +1,24 @@
 #include "Shader.h"
 
+#include <iostream>
+
 Shader::Shader(std::string name) :
 	m_program(NULL)
 {
-	std::string vertexPath = "Shaders/" + name + "/" + name + ".vertex";
-	std::string fragmentPath = "Shaders/" + name + "/" + name + ".fragment";
+	std::string vertexPath = "../../../Shaders/" + name + "/" + name + ".vertex";
+	std::string fragmentPath = "../../../Shaders/" + name + "/" + name + ".fragment";
 
 	std::ifstream vertexFile(vertexPath);
 	std::ifstream fragmentFile(fragmentPath);
+
+	if (!vertexFile)
+	{
+		std::cout << "Invalid vertex file path" << std::endl;
+	}
+	if (!fragmentFile)
+	{
+		std::cout << "Invalid fragment file path" << std::endl;
+	}
 
 	std::stringstream vertexStream;
 	std::stringstream fragmentStream;
@@ -16,6 +27,7 @@ Shader::Shader(std::string name) :
 	
 	std::string vertexSrcCode = vertexStream.str();
 	std::string fragmentSrcCode = fragmentStream.str();
+
 	const char* vertexSrc = vertexSrcCode.c_str();
 	const char* fragmentSrc = fragmentSrcCode.c_str();
 
@@ -23,8 +35,22 @@ Shader::Shader(std::string name) :
 	unsigned int fShader = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(vShader, 1, &vertexSrc, NULL);
 	glShaderSource(fShader, 1, &fragmentSrc, NULL);
+	
+	int vSuccess;
 	glCompileShader(vShader);
+	glGetShaderiv(vShader, GL_COMPILE_STATUS, &vSuccess);
+	if (!vSuccess)
+	{
+		std::cout << "Vertex shader error compilation" << std::endl;
+	}
+
+	int fSuccess;
 	glCompileShader(fShader);
+	glGetShaderiv(fShader, GL_COMPILE_STATUS, &fSuccess);
+	if (!fSuccess)
+	{
+		std::cout << "Fragment shader error compilation" << std::endl;
+	}
 
 	m_program = glCreateProgram();
 	glAttachShader(m_program, vShader);

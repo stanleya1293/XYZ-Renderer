@@ -10,12 +10,9 @@ Model::Model(std::vector<Vertex> vertices) :
 
 	glGenBuffers(1, &m_vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * 3 * sizeof(float), &vertices[0], GL_STATIC_DRAW);
 
-	Vertex* rawVertices = vertices.data();
-
-	glBufferData(GL_ARRAY_BUFFER, vertices.size() * 3 * sizeof(float), &rawVertices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, (void*)0); //needs to be done in a renderer object
+	glVertexAttribPointer(0, 3, GL_FLOAT, false, 3 * sizeof(float), (void*)0); //needs to be done in a renderer object
 	glEnableVertexAttribArray(0);
 }
 
