@@ -12,6 +12,7 @@ public:
 	Shader(std::string name);
 	~Shader();
 	void use();
+	
 private:
 	unsigned int m_program;
 };
