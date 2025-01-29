@@ -10,9 +10,12 @@ class Camera
 public:
 	Camera();
 	~Camera();
+	void update();
 private:
-	glm::vec3 m_position;
+	float m_yaw;
+	float m_pitch;
 	glm::vec3 m_direction;
+	glm::vec3 m_position;
 	glm::mat4 m_view;
 };
 
