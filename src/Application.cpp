@@ -28,7 +28,7 @@ void Application::run()
 
 	Shader def("default");
 
-
+	Camera camera(def);
 
 	while (m_window.running())
 	{
