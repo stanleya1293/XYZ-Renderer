@@ -17,13 +17,16 @@ typedef struct
 class Model
 {
 public:
-	Model(std::vector<Vertex> vertices); 
+	Model(std::vector<Vertex> vertices, glm::vec3 position, float scale); 
 	~Model();
 	void render(Shader shader);
 private:
 	unsigned int m_vao;
 	unsigned int m_vbo;
 	unsigned int m_vertexCount;
+	glm::vec3 m_position;
+	float m_scale;
+	glm::mat4 m_model;
 };
 
 #endif

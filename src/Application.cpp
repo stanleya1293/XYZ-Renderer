@@ -24,7 +24,7 @@ void Application::run()
 		Vertex {{  0.5f,   0.5f,  0.0f  }}
 	};
 
-	Model square(vertices);
+	Model square(vertices, {0.0f, 0.0f, 0.0f}, 1.0f);
 
 	Shader def("default");
 

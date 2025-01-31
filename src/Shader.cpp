@@ -70,3 +70,8 @@ void Shader::use()
 {
 	glUseProgram(m_program);
 }
+
+void Shader::uniformMat4(std::string name, glm::mat4 data)
+{
+	glUniformMatrix4fv(glGetUniformLocation(m_program, name.c_str()), 1, GL_FALSE, glm::value_ptr(data));
+}
