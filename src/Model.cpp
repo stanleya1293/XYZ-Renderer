@@ -30,7 +30,7 @@ Model::~Model()
 void Model::render(Shader shader)
 {
 	shader.use();
-	shader.uniformMat4("model", m_model);
+	//shader.uniformMat4("model", m_model);
 	glBindVertexArray(m_vao);
 	glDrawArrays(GL_TRIANGLES, 0, m_vertexCount);
 }

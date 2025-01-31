@@ -15,8 +15,8 @@ Camera::Camera(Shader shader) :
 
 	m_view = glm::lookAt(m_position, m_position + glm::normalize(m_direction), glm::vec3(0.0f, 1.0f, 0.0f));
 	m_projection = glm::perspective(glm::radians(45.0f), (float) 800.0f / (float) 800.0f, 0.1f, 100.0f);
-	shader.uniformMat4("view", m_view);
-	shader.uniformMat4("projection", m_projection);
+	//shader.uniformMat4("view", m_view);
+	//shader.uniformMat4("projection", m_projection);
 }
 
 Camera::~Camera()
