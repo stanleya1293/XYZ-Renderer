@@ -1,5 +1,11 @@
 #include "Window.h"
 
+
+void mouseCallback(GLFWwindow* window, double xPos, double yPos)
+{
+
+}
+
 Window::Window() :
 	m_windowID(nullptr),
 	m_width(800),
@@ -17,6 +23,8 @@ Window::Window() :
 		);
 	glfwMakeContextCurrent(m_windowID);
 	gladLoadGLLoader((GLADloadproc) glfwGetProcAddress);
+	glfwSetInputMode(m_windowID, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetCursorPosCallback(m_windowID, mouseCallback);
 }
 
 Window::~Window()
